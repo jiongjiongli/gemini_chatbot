@@ -26,7 +26,6 @@ function App() {
   const [chatHistory, setChatHistory] = useState([]);
   const [buttonEnabled, setButtonEnabled] = useState(false);
   const [buttonHover, setButtonHover] = useState(false);
-  const [isKeyUpEnabled, setIsKeyUpEnabled] = useState(true);
   const [password, setPassword] = useState('');
 
   const handlePasswordChange = (event) => {
@@ -155,20 +154,16 @@ function App() {
     run();
   };
 
-  const handleKeyUp = event => {
-    if (!isKeyUpEnabled) {
-      return;
+  const handleKeyDown = event => {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevents the default action of the Enter key
     }
-
-    setIsKeyUpEnabled(false);
 
     // if (event.key === 'Enter' && event.ctrlKey && msg.trim() !== '') {
     if (event.key === 'Enter' && msg.trim() !== '') {
       handleMsg(event);
     }
-
-    setIsKeyUpEnabled(true);
-  };
+  }
 
   const handleClearHistory = event => {
     setChatHistory([]);
@@ -214,7 +209,7 @@ function App() {
                 required
                 value={msg}
                 onChange={handleChange}
-                onKeyUp={handleKeyUp}
+                onKeyDown={handleKeyDown}
               />
               <button onClick={handleMsg}
                 onMouseEnter={handleMouseEnter}
