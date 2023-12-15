@@ -16,4 +16,4 @@ Preview URL: https://jiongjiongli.github.io/gemini_chatbot/
 
 ## Safety
 
-This website is safe to use to use because it only run on your computer and would not communicate with the server.
+This website is safe to use to use because it only runs on client side - your computer and would not communicate with the server.
