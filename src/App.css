@@ -145,6 +145,7 @@ body {
     padding-right: 70px;
     font-family: 'Poppins', sans-serif;
     transition: 0.3s all ease;
+    resize: none;
 }
 
 .wrapper .typing-area .input-field textarea:focus {
