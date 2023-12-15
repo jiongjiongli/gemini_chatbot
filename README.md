@@ -4,7 +4,10 @@ A  Google Gemini chatbot website supporting multi-turn conversations with text o
 
 ## Preview
 
-https://jiongjiongli.github.io/gemini_chatbot/
+Preview URL: https://jiongjiongli.github.io/gemini_chatbot/
+
+![1702610836907](https://github.com/jiongjiongli/gemini_chatbot/assets/33146359/3875d9bf-877b-42ac-b958-447b5cf9890b)
+
 
 ## Usage
 
