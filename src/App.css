@@ -62,9 +62,10 @@ body {
     padding: 10px;
     top: 10px;
     width: 50%;
-    left: 25%;
-    right: 25%;
-    max-height: 700px;
+    left: 10%;
+    right: 10%;
+    max-height: 80%;
+    height: 750px;
     overflow: auto;
 }
 
@@ -80,7 +81,7 @@ body {
 .wrapper .box {
     border: 1px solid #efefef;
     padding: 10px 15px;
-    min-height: 500px;
+    min-height: 70%;
 }
 
 .wrapper .box .item {
@@ -103,7 +104,7 @@ body {
     background: #007bff;
     color: white;
     border-radius: 10px;
-    max-width: 350px;
+    max-width: 80%;
     margin-left: 10px;
 }
 
@@ -114,9 +115,14 @@ body {
 
 .wrapper .box .item.right {
     float: right;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* Aligns child to the right */
 }
 
 .wrapper .box .item.right .msg {
+    float: right;
+    max-width: 80%;
     background: #efefef;
     color: #333;
 }
@@ -167,7 +173,11 @@ body {
 }
 
 .wrapper input#password {
-  color: #007bff;
-  border: 1px solid #007bff;
+  border: 1px solid #ddd;
   border-radius: 3px;
+}
+
+.wrapper input#password:focus {
+  border-color: #007bff;
+  outline: none;
 }

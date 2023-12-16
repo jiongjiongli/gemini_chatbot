@@ -28,15 +28,16 @@ function App() {
   const [buttonHover, setButtonHover] = useState(false);
   const [password, setPassword] = useState('');
 
-  const handlePasswordChange = (event) => {
-      setPassword(event.target.value);
-  };
   const endHistoryRef = useRef(null);
   const genAIRef = useRef(null);
   const maxLength = 100;
 
   const apiKeyIssues = ["Method doesn't allow unregistered callers",
     "API key not valid"];
+
+  const handlePasswordChange = (event) => {
+      setPassword(event.target.value);
+  };
 
   const updateButtonStyle = (isEnabled, isHover) => {
     const buttonStyle = isEnabled
@@ -86,7 +87,22 @@ function App() {
           <br clear="both" />
         </div>);
 
-      const userChatHistory = [...chatHistory, userChat];
+      const robotProcessMsg = "In process...";
+
+      const robotTempChat = (
+        <div className="robotRound">
+          <div className="item">
+              <div className="icon">
+                <i className="fa fa-user">G</i>
+              </div>
+              <div className="msg">
+                  <p>{robotProcessMsg}</p>
+              </div>
+          </div>
+          <br clear="both" />
+        </div>);
+
+      const userChatHistory = [...chatHistory, userChat, robotTempChat];
       setChatHistory(userChatHistory);
       handleMsgText('');
 
@@ -147,7 +163,7 @@ function App() {
           <br clear="both" />
         </div>);
 
-      const robotChatHistory = [...userChatHistory, robotChat];
+      const robotChatHistory = [...chatHistory, userChat, robotChat];
       setChatHistory(robotChatHistory);
     }
 
@@ -155,11 +171,14 @@ function App() {
   };
 
   const handleKeyDown = event => {
+    // if (event.key === 'Enter' && event.ctrlKey) {
+    //   return;
+    // }
+
     if (event.key === 'Enter') {
       event.preventDefault(); // Prevents the default action of the Enter key
     }
 
-    // if (event.key === 'Enter' && event.ctrlKey && msg.trim() !== '') {
     if (event.key === 'Enter' && msg.trim() !== '') {
       handleMsg(event);
     }
